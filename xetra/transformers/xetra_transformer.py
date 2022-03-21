@@ -41,7 +41,7 @@ class XetraTargetConfig(NamedTuple):
     trg_col_clos_price: column name for close price in target
     trg_col_min_price: column name for min price in target
     trg_col_max_price: column name for max price in target
-    trg_col_dail_trad_vol: column name for daily traded volumne in target
+    trg_col_dail_trad_vol: column name for daily traded volume in target
     trg_col_ch_prev_clos: column name for change to previous day's closing price in target
     trg_key:  basic key of target file
     trg_key_date_format: date format of target file key
@@ -97,7 +97,7 @@ class XetraETL():
         """
         self._logger.info('Extracting Xetras source files started...')
         files = [key for date in self.extact_date_list\
-                 for key in self.s3_bucket_src.list_files_in_prefix(date)]
+                     for key in self.s3_bucket_src.list_files_in_prefix(date)]
         if not files:
             data_frame = pd.DataFrame()
         else:

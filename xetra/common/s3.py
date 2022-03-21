@@ -89,4 +89,5 @@ class S3BucketConnector():
         self._logger.info('Writing file to %s/%s/%s', self.endpoint_url, self._bucket.name, key)
         self._bucket.put_object(Body=out_buffer.getvalue(), Key=key)
         return True
+        
     
