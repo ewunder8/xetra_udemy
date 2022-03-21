@@ -58,7 +58,7 @@ class S3BucketConnector():
         data_frame = pd.read_csv(data, sep=sep)
         return data_frame
 
-    def write_df_to_s3(self, data_frame: pd.Dataframe, key: str, file_format: str):
+    def write_df_to_s3(self, data_frame: pd.DataFrame, key: str, file_format: str):
         """
         writing a Pandas DataFrame to S3
         supported formats: csv and parquet
@@ -72,7 +72,7 @@ class S3BucketConnector():
             return self.__put_object(out_buffer, key)
         if file_format == S3FileTypes.PARQUET.value:
             out_buffer = BytesIO()
-            data_frame.to_parquet(out_buffer, key)
+            data_frame.to_parquet(out_buffer, index=False)
             return self.__put_object(out_buffer, key)
         self._logger.info('The file format %s is not '
         'supported to be written to s3.', file_format)

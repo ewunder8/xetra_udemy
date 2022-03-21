@@ -144,7 +144,7 @@ class TestS3BucketConnectorMethods(unittest.TestCase):
         return_exp = None
         log_exp = 'The dataframe is empty! No file will be written!'
         # Test init
-        df_empty = pd.Dataframe()
+        df_empty = pd.DataFrame()
         key = 'key.csv'
         file_format = 'csv'
         # Method execution
@@ -231,7 +231,7 @@ class TestS3BucketConnectorMethods(unittest.TestCase):
         df_exp = pd.DataFrame([['A','B'], ['C','D']], columns =['col1', 'col2'])
         key_exp = 'test.parquet'
         format_exp = 'wrong_format'
-        log_exp = f'The file format {format_exp} is not supported to be written to S3'
+        log_exp = f'The file format {format_exp} is not supported to be written to s3.'
         exception_exp = WrongFormatException
         # Method execution
         with self.assertLogs() as logm:
